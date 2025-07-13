@@ -9,6 +9,7 @@ import {
 } from "../Service/Service";
 import { useOutletContext } from "react-router-dom";
 import SearchInput from "../Components/SearchInput";
+import Button from "../Components/Button";
 
 export default function Home() {
   const { favourites, setFavourites } = useOutletContext<{
@@ -17,6 +18,7 @@ export default function Home() {
   }>();
   const [games, setGames] = useState<Game[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [visibleCount, setVisibleCount] = useState(12);
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -41,7 +43,9 @@ export default function Home() {
     setFavourites((prev) => removeFavourite(prev, id));
   };
 
-  const displayedGames = searchTerm ? filteredGames(games, searchTerm) : games;
+  const filtered = searchTerm ? filteredGames(games, searchTerm) : games;
+  const displayedGames = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -62,6 +66,15 @@ export default function Home() {
             <GameCard key={g.id} game={g} onAdd={handleAddtoFavourite} />
           ))}
         </div>
+        {hasMore && (
+          <div className="mt-8 flex justify-center">
+            <Button
+              label="Show More"
+              onClick={() => setVisibleCount((prev) => prev + 12)}
+              className="mt-4"
+            />
+          </div>
+        )}
         <FavoritesList
           favourites={favourites}
           onDelete={handleRemoveFavourite}
