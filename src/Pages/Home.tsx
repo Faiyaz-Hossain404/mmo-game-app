@@ -46,15 +46,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-900">
       <div className="container mx-auto px-4 py-6">
-        <h1 className="text-3xl text-white text-center font-bold mb-6">
-          MMO Game
-        </h1>
-        {/* Search Input */}
-        <SearchInput
-          searchTerm={searchTerm}
-          onSearchChange={setSearchTerm}
-          placeholder="Search game..."
-        />
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-3xl text-white text-center font-bold mb-6">
+            MMO Game
+          </h1>
+          {/* Search Input */}
+          <SearchInput
+            searchTerm={searchTerm}
+            onSearchChange={setSearchTerm}
+            placeholder="Search game..."
+          />
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {displayedGames.map((g) => (
             <GameCard key={g.id} game={g} onAdd={handleAddtoFavourite} />
