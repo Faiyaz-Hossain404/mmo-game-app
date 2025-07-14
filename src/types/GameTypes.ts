@@ -16,10 +16,9 @@ export interface GameDetail {
   id: number;
   title: string;
   thumbnail: string;
-  description: string;
+  short_description: string;
   genre: string;
   platform: string;
   publisher: string;
   developer: string;
-  releaseDate: string;
 }

@@ -12,7 +12,7 @@ const GameDetailPage = () => {
     const fetchDetail = async () => {
       try {
         const response = await fetch(
-          `https://corsproxy.io/?https://www.mmobomb.com/api1/games?id=$(id)`
+          `https://corsproxy.io/?https://www.mmobomb.com/api1/game?id=${id}`
         );
         const data = await response.json();
         setGame(data);
@@ -30,16 +30,36 @@ const GameDetailPage = () => {
     return <p className="text-red-500">Error loading game.</p>;
 
   return (
-    <div>
-      <div>
-        <img src={game.thumbnail} alt={game.title} />
-        <h1>{game.title}</h1>
-        <p>{game.description}</p>
+    <div className="min-h-screen bg-slate-900 text-white p-6">
+      <div className="max-w-2xl mx-auto rounded p-6 shadow border">
+        <img
+          src={game.thumbnail}
+          alt={game.title}
+          className="w-full h-60 object-cover mb-4"
+        />
+        <h1 className="text-2xl font-bold mb-2">{game.title}</h1>
         <p>
-          Released: {game.releaseDate} | Platform: {game.platform} | Genre:
-          {game.genre} | Publisher: {game.publisher} | Developer:
-          {game.developer}
+          <span className="text-yellow-500">Description: </span>
+          <span className="text-whute">{game.short_description}</span>
         </p>
+        <div className="text-sm space-y-1">
+          <p>
+            <span className="text-yellow-500">Platform: </span>
+            <span className="text-white">{game.platform}</span>
+          </p>
+          <p>
+            <span className="text-yellow-500">Genre: </span>
+            <span className="text-white">{game.genre}</span>
+          </p>
+          <p>
+            <span className="text-yellow-500">Publisher: </span>
+            <span className="text-white">{game.publisher}</span>
+          </p>
+          <p>
+            <span className="text-yellow-500">Developer: </span>
+            <span className="text-white">{game.developer}</span>
+          </p>
+        </div>
       </div>
     </div>
   );

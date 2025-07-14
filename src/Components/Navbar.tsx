@@ -15,7 +15,7 @@ const Navbar = () => {
                 pathname === "/" ? "text-blue-600" : "text-black"
               }`}
             >
-              <li>Home</li>
+              Home
             </Link>
           </li>
           <li>
@@ -25,7 +25,7 @@ const Navbar = () => {
                 pathname === "/favourites" ? "text-blue-600" : "text-black"
               }`}
             >
-              <li>Favourites</li>
+              Favourites
             </Link>
           </li>
           {/* <li onClick={() => navigate("/test")}>TEst</li> */}

@@ -14,7 +14,7 @@ export default function FavouritesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white px-4 py-6">
+    <div className="min-h-screen bg-slate-900 text-black px-4 py-6">
       <h2 className="text-2xl font-bold mb-4">Your Favourites</h2>
       <FavoritesList favourites={favourites} onDelete={handleRemoveFavourite} />
     </div>
