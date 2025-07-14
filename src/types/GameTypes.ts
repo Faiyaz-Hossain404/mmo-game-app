@@ -11,3 +11,15 @@ export interface Favourite {
   title: string;
   timestamp: string;
 }
+
+export interface GameDetail {
+  id: number;
+  title: string;
+  thumbnail: string;
+  description: string;
+  genre: string;
+  platform: string;
+  publisher: string;
+  developer: string;
+  releaseDate: string;
+}
