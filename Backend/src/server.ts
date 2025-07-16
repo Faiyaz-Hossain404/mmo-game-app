@@ -5,14 +5,13 @@ dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
-async () => {
+(async () => {
   try {
-    await sequelize.sync({ alter: true }).then(() => {
-      app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-      });
+    await sequelize.sync({ alter: true });
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT} ✅`);
     });
   } catch (err) {
     console.error("Failed to connect to DB:", err);
   }
-};
+})();
