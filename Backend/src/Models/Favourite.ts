@@ -30,3 +30,5 @@ Favourite.init(
     timestamps: false,
   }
 );
+
+export default Favourite;
