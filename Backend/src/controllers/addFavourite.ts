@@ -31,7 +31,9 @@ export const addFavourite = async (
       return res.status(404).json({ error: "Favourite already exists." });
     }
     const favourites = await Favourite.create({ id, name, timestamp });
-    res.status(201).json(favourites);
+    res
+      .status(201)
+      .json({ message: "Message Posted ✅", favourites: favourites });
   } catch (error) {
     next(error);
   }

@@ -7,8 +7,8 @@ import {
 
 const router = Router();
 
-router.use("/", getFavourites);
-router.use("/", addFavourite);
-router.use("/:id", deleteFavourite);
+router.get("/", getFavourites);
+router.post("/", addFavourite);
+router.delete("/:id", deleteFavourite);
 
 export default router;

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import FavouriteRoutes from "./routes/favouriteRoutes";
+import path from "path";
 const app = express();
 
 app.use(cors());
